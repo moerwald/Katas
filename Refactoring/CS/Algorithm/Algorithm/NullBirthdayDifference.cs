@@ -1,6 +1,6 @@
 ﻿namespace Algorithm
 {
-    public class NullBirthdayDifference : BirthdayDifference
+    public sealed class NullBirthdayDifference : BirthdayDifference
     {
         private static NullBirthdayDifference _nullBirthdayDifference;
 

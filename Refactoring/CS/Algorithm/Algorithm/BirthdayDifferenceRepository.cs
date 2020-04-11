@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Algorithm
 {
-    public class BirthdayDifferenceRepository : IBirthdayDifferenceRepository
+    public sealed class BirthdayDifferenceRepository : IBirthdayDifferenceRepository
     {
         private readonly IEnumerable<BirthdayDifference> _birthdayDifferences;
         private readonly Person[] _persons;

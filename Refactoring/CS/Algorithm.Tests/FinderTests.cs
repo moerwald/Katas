@@ -86,9 +86,9 @@ namespace Algorithm.Tests
             Assert.Same(_greg, result.OlderPerson);
         }
 
-        private readonly Person _sue = new Person { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
-        private readonly Person _greg = new Person { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
-        private readonly Person _sarah = new Person { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
-        private readonly Person _mike = new Person { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
+        private readonly Person _sue = new Person("Sue", new DateTime(1950, 1, 1));
+        private readonly Person _greg = new Person("Greg", new DateTime(1952, 6, 1));
+        private readonly Person _sarah = new Person("Sarah", new DateTime(1982, 1, 1));
+        private readonly Person _mike = new Person("Mike", new DateTime(1979, 1, 1));
     }
 }

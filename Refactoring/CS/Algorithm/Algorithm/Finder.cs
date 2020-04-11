@@ -4,7 +4,7 @@ using Algorithm.FindAlgorithms;
 
 namespace Algorithm
 {
-    public class Finder
+    public sealed class Finder
     {
         private readonly IBirthdayDifferenceRepository _repository;
         private readonly IBirthdayDiffComparer _comparer;

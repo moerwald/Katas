@@ -13,7 +13,6 @@ namespace Algorithm
         {
             YoungerPerson = p1.BirthDate < p2.BirthDate ? p1 : p2;
             OlderPerson = YoungerPerson == p1 ? p2 : p1;
-
             Difference = OlderPerson.BirthDate - (YoungerPerson.BirthDate);
         }
 
@@ -21,7 +20,7 @@ namespace Algorithm
         public Person OlderPerson { get; }
         public TimeSpan Difference { get; }
 
-        #region IEquatable
+        #region IEquatable, Code generated via Resharper
         public bool Equals(BirthdayDifference other)
         {
             if (ReferenceEquals(null, other)) return false;
