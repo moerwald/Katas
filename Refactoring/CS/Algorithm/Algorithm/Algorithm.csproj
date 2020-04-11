@@ -40,11 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BirthdayDifferenceRepository.cs" />
     <Compile Include="Finder.cs" />
-    <Compile Include="F.cs" />
-    <Compile Include="FT.cs" />
-    <Compile Include="Thing.cs" />
+    <Compile Include="BirthdayDifference.cs" />
+    <Compile Include="eBirthDiff.cs" />
+    <Compile Include="IBirthdayDifferenceRepository.cs" />
+    <Compile Include="NullBirthdayDifference.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
