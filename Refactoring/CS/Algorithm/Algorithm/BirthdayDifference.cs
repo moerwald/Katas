@@ -2,6 +2,9 @@
 
 namespace Algorithm
 {
+    /// <summary>
+    /// Value type
+    /// </summary>
     public class BirthdayDifference : IEquatable<BirthdayDifference>
     {
         protected BirthdayDifference() { }
@@ -16,8 +19,9 @@ namespace Algorithm
 
         public Person YoungerPerson { get; }
         public Person OlderPerson { get; }
-        public TimeSpan Difference { get;}
+        public TimeSpan Difference { get; }
 
+        #region IEquatable
         public bool Equals(BirthdayDifference other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -30,7 +34,7 @@ namespace Algorithm
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((BirthdayDifference) obj);
+            return Equals((BirthdayDifference)obj);
         }
 
         public override int GetHashCode()
@@ -45,14 +49,12 @@ namespace Algorithm
         }
 
         public static bool operator ==(BirthdayDifference left, BirthdayDifference right)
-        {
-            return Equals(left, right);
-        }
+            => Equals(left, right);
 
         public static bool operator !=(BirthdayDifference left, BirthdayDifference right)
-        {
-            return !Equals(left, right);
-        }
+            => !Equals(left, right);
+
+        #endregion
 
         public override string ToString()
         {

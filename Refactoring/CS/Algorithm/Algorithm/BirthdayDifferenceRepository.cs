@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithm
@@ -10,7 +11,7 @@ namespace Algorithm
 
         public BirthdayDifferenceRepository(IEnumerable<Person> persons)
         {
-            _persons = persons.ToArray();
+            _persons = persons?.ToArray() ?? throw new ArgumentNullException(nameof(persons));
             _birthdayDifferences = CreateRepository();
         }
 
@@ -36,6 +37,10 @@ namespace Algorithm
 #endif
         }
 
+        /// <summary>
+        /// Returns a flat copy of the list object.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<BirthdayDifference> GetRepository() => _birthdayDifferences.ToList();
     }
 }

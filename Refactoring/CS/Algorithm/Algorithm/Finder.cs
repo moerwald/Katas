@@ -1,30 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using Algorithm.FindAlgorithms;
 
 namespace Algorithm
 {
     public class Finder
     {
-        private readonly IEnumerable<Person> _persons;
         private readonly IBirthdayDifferenceRepository _repository;
+        private readonly IBirthdayDiffComparer _comparer;
 
-        public Finder(IEnumerable<Person> persons, IBirthdayDifferenceRepository repository)
+        public Finder(
+            IBirthdayDifferenceRepository repository,
+            IBirthdayDiffComparer comparer)
         {
-            _persons = persons;
-            _repository = repository;
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _comparer = comparer ?? throw new ArgumentNullException(nameof(comparer));
         }
 
-        public BirthdayDifference Find(eBirthDiff eBirthDiff)
+        public BirthdayDifference Find()
             => _repository.GetRepository()
-                              .ToList()
-                              .Aggregate( (current, next) => 
-                                  eBirthDiff == eBirthDiff.Minimum ? Min(next, current) : Max(next, current)); 
-
-        private static BirthdayDifference Min(BirthdayDifference val1, BirthdayDifference val2)
-            => val1.Difference < val2.Difference ? val1 : val2;
-
-        private static BirthdayDifference Max(BirthdayDifference val1, BirthdayDifference val2)
-            => val1.Difference > val2.Difference ? val1 : val2;
+                .Aggregate((current, next) =>
+                    _comparer.Compare(next, current));
     }
 }

@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xunit;
+using Algorithm.FindAlgorithms;
 
 namespace Algorithm.Tests
-{    
+{
     public class FinderTests
     {
         [Fact]
         public void Returns_Empty_Results_When_Given_Empty_List()
         {
-            var list = new List<Person>();
-            var finder = new Finder(list, new BirthdayDifferenceRepository(list));
+            var finder = new Finder(
+                new BirthdayDifferenceRepository(new List<Person>()),
+                AlgorithmsFactory.GetMinComparer()
+            );
 
-            var result = finder.Find(eBirthDiff.Minimum);
+            var result = finder.Find();
 
             Assert.Null(result.YoungerPerson);
             Assert.Null(result.OlderPerson);
@@ -21,10 +24,11 @@ namespace Algorithm.Tests
         [Fact]
         public void Returns_Empty_Results_When_Given_One_Person()
         {
-            var list = new List<Person>() { sue };
-            var finder = new Finder(list, new BirthdayDifferenceRepository(list));
+            var finder = new Finder(
+                 new BirthdayDifferenceRepository( new List<Person>() { _sue } ),
+                 AlgorithmsFactory.GetMinComparer());
 
-            var result = finder.Find(eBirthDiff.Minimum);
+            var result = finder.Find();
 
             Assert.Null(result.YoungerPerson);
             Assert.Null(result.OlderPerson);
@@ -33,54 +37,58 @@ namespace Algorithm.Tests
         [Fact]
         public void Returns_Closest_Two_For_Two_People()
         {
-            var list = new List<Person>() { sue, greg };
-            var finder = new Finder(list, new BirthdayDifferenceRepository(list));
+            var finder = new Finder(
+                new BirthdayDifferenceRepository(new List<Person> { _sue, _greg }),
+                AlgorithmsFactory.GetMinComparer());
 
-            var result = finder.Find(eBirthDiff.Minimum);
+            var result = finder.Find();
 
-            Assert.Same(sue, result.YoungerPerson);
-            Assert.Same(greg, result.OlderPerson);
+            Assert.Same(_sue, result.YoungerPerson);
+            Assert.Same(_greg, result.OlderPerson);
         }
 
         [Fact]
         public void Returns_Furthest_Two_For_Two_People()
         {
-            var list = new List<Person>() { greg, mike };
-            var finder = new Finder(list, new BirthdayDifferenceRepository(list));
+            var finder = new Finder(
+                new BirthdayDifferenceRepository(new List<Person> { _greg, _mike }),
+                AlgorithmsFactory.GetMaxComparer());
 
-            var result = finder.Find(eBirthDiff.Maximum);
+            var result = finder.Find();
 
-            Assert.Same(greg, result.YoungerPerson);
-            Assert.Same(mike, result.OlderPerson);
+            Assert.Same(_greg, result.YoungerPerson);
+            Assert.Same(_mike, result.OlderPerson);
         }
 
         [Fact]
         public void Returns_Furthest_Two_For_Four_People()
         {
-            var list = new List<Person>() { greg, mike, sarah, sue };
-            var finder = new Finder(list, new BirthdayDifferenceRepository(list));
+            var finder = new Finder(
+                new BirthdayDifferenceRepository(new List<Person>() { _greg, _mike, _sarah, _sue }),
+                AlgorithmsFactory.GetMaxComparer());
 
-            var result = finder.Find(eBirthDiff.Maximum);
+            var result = finder.Find();
 
-            Assert.Same(sue, result.YoungerPerson);
-            Assert.Same(sarah, result.OlderPerson);
+            Assert.Same(_sue, result.YoungerPerson);
+            Assert.Same(_sarah, result.OlderPerson);
         }
 
         [Fact]
         public void Returns_Closest_Two_For_Four_People()
         {
-            var list = new List<Person>() { greg, mike, sarah, sue };
-            var finder = new Finder(list, new BirthdayDifferenceRepository(list));
+            var finder = new Finder(
+                new BirthdayDifferenceRepository(new List<Person> { _greg, _mike, _sarah, _sue }),
+                AlgorithmsFactory.GetMinComparer());
 
-            var result = finder.Find(eBirthDiff.Minimum);
+            var result = finder.Find();
 
-            Assert.Same(sue, result.YoungerPerson);
-            Assert.Same(greg, result.OlderPerson);
+            Assert.Same(_sue, result.YoungerPerson);
+            Assert.Same(_greg, result.OlderPerson);
         }
 
-        Person sue = new Person() {Name = "Sue", BirthDate = new DateTime(1950, 1, 1)};
-        Person greg = new Person() {Name = "Greg", BirthDate = new DateTime(1952, 6, 1)};
-        Person sarah = new Person() { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
-        Person mike = new Person() { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
+        private readonly Person _sue = new Person { Name = "Sue", BirthDate = new DateTime(1950, 1, 1) };
+        private readonly Person _greg = new Person { Name = "Greg", BirthDate = new DateTime(1952, 6, 1) };
+        private readonly Person _sarah = new Person { Name = "Sarah", BirthDate = new DateTime(1982, 1, 1) };
+        private readonly Person _mike = new Person { Name = "Mike", BirthDate = new DateTime(1979, 1, 1) };
     }
 }

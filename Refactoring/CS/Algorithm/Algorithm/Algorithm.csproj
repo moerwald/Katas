@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BirthdayDifferenceRepository.cs" />
+    <Compile Include="FindAlgorithms\AlgorithmsFactory.cs" />
+    <Compile Include="FindAlgorithms\BirthdayDiffMaxComparer.cs" />
+    <Compile Include="FindAlgorithms\BirthdayDiffMinComparer.cs" />
+    <Compile Include="FindAlgorithms\IBirthdayDiffComparer.cs" />
     <Compile Include="Finder.cs" />
     <Compile Include="BirthdayDifference.cs" />
-    <Compile Include="eBirthDiff.cs" />
     <Compile Include="IBirthdayDifferenceRepository.cs" />
     <Compile Include="NullBirthdayDifference.cs" />
     <Compile Include="Person.cs" />
@@ -52,6 +55,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
