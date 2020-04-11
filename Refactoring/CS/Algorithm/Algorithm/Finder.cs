@@ -18,7 +18,7 @@ namespace Algorithm
         }
 
         public BirthdayDifference Find()
-            => _repository.GetRepository()
+            => _repository.GetAll()
                 .Aggregate((current, next) =>
                     _comparer.Compare(next, current));
     }

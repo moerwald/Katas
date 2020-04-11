@@ -17,7 +17,7 @@ namespace Algorithm
 
         private IEnumerable<BirthdayDifference> CreateRepository()
         {
-#if false
+#if true
             return _persons.SelectMany(p1 => _persons.Select(p2 => new BirthdayDifference(p1, p2)))
                            .Distinct()
                            .DefaultIfEmpty(NullBirthdayDifference.Instance);
@@ -41,6 +41,6 @@ namespace Algorithm
         /// Returns a flat copy of the list object.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BirthdayDifference> GetRepository() => _birthdayDifferences.ToList();
+        public IEnumerable<BirthdayDifference> GetAll() => _birthdayDifferences.ToList();
     }
 }
