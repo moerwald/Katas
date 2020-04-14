@@ -16,26 +16,16 @@ namespace Algorithm
         }
 
         private IEnumerable<BirthdayDifference> CreateRepository()
-        {
-#if true
-            return _persons.SelectMany(p1 => _persons.Select(p2 => new BirthdayDifference(p1, p2)))
-                           .Distinct()
+            => _persons.SelectMany( CreateBirthdayDifferenceWithOtherPersons )
+                           .Distinct( )
                            .DefaultIfEmpty(NullBirthdayDifference.Instance);
-#else
 
-            var length = _persons.Length;
-            var diffs = new List<BirthdayDifference>();
-            for (var i = 0; i < length - 1; i++)
-            {
-                for (var j = i + 1; j < length; j++)
-                {
-                    diffs.Add(new BirthdayDifference(_persons[i], _persons[j]));
-                }
-            }
+        private IEnumerable<BirthdayDifference> CreateBirthdayDifferenceWithOtherPersons(Person person)
+            => _persons.Where(PersonIsNotTheSame(person))
+                       .Select(p => new BirthdayDifference(person, p));
 
-            return diffs.DefaultIfEmpty(NullBirthdayDifference.Instance);
-#endif
-        }
+        private static Func<Person, bool> PersonIsNotTheSame(Person person) => p => p != person;
+
 
         /// <summary>
         /// Returns a flat copy of the list object.

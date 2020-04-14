@@ -25,7 +25,11 @@ namespace Algorithm
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(YoungerPerson, other.YoungerPerson) && Equals(OlderPerson, other.OlderPerson) && Difference.Equals(other.Difference);
+            return (
+                   Equals(YoungerPerson, other.YoungerPerson) &&
+                   Equals(OlderPerson, other.OlderPerson)
+                   );
+
         }
 
         public override bool Equals(object obj)
