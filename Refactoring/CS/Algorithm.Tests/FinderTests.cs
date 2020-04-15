@@ -13,7 +13,7 @@ namespace Algorithm.Tests
         {
             var finder = new Finder(
                 new BirthdayDifferenceRepository(new List<Person.Person>()),
-                AlgorithmsFactory.GetMinComparer()
+                AlgorithmsFactory.GetSmallestBirthdayDifference()
             );
 
             var result = finder.Find();
@@ -27,7 +27,7 @@ namespace Algorithm.Tests
         {
             var finder = new Finder(
                  new BirthdayDifferenceRepository( new List<Person.Person>() { _sue } ),
-                 AlgorithmsFactory.GetMinComparer());
+                 AlgorithmsFactory.GetSmallestBirthdayDifference());
 
             var result = finder.Find();
 
@@ -40,7 +40,7 @@ namespace Algorithm.Tests
         {
             var finder = new Finder(
                 new BirthdayDifferenceRepository(new List<Person.Person> { _sue, _greg }),
-                AlgorithmsFactory.GetMinComparer());
+                AlgorithmsFactory.GetSmallestBirthdayDifference());
 
             var result = finder.Find();
 
@@ -53,7 +53,7 @@ namespace Algorithm.Tests
         {
             var finder = new Finder(
                 new BirthdayDifferenceRepository(new List<Person.Person> { _greg, _mike }),
-                AlgorithmsFactory.GetMaxComparer());
+                AlgorithmsFactory.GetBiggestBirthdayDifference());
 
             var result = finder.Find();
 
@@ -66,7 +66,7 @@ namespace Algorithm.Tests
         {
             var finder = new Finder(
                 new BirthdayDifferenceRepository(new List<Person.Person>() { _greg, _mike, _sarah, _sue }),
-                AlgorithmsFactory.GetMaxComparer());
+                AlgorithmsFactory.GetBiggestBirthdayDifference());
 
             var result = finder.Find();
 
@@ -79,7 +79,7 @@ namespace Algorithm.Tests
         {
             var finder = new Finder(
                 new BirthdayDifferenceRepository(new List<Person.Person> { _greg, _mike, _sarah, _sue }),
-                AlgorithmsFactory.GetMinComparer());
+                AlgorithmsFactory.GetSmallestBirthdayDifference());
 
             var result = finder.Find();
 
