@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Algorithm
+namespace Algorithm.BirthdayDifference.Model
 {
     /// <summary>
     /// Value type
@@ -9,15 +9,15 @@ namespace Algorithm
     {
         protected BirthdayDifference() { }
 
-        public BirthdayDifference(Person p1, Person p2)
+        public BirthdayDifference(Person.Person p1, Person.Person p2)
         {
             YoungerPerson = p1.BirthDate < p2.BirthDate ? p1 : p2;
             OlderPerson = YoungerPerson == p1 ? p2 : p1;
             Difference = OlderPerson.BirthDate - (YoungerPerson.BirthDate);
         }
 
-        public Person YoungerPerson { get; }
-        public Person OlderPerson { get; }
+        public Person.Person YoungerPerson { get; }
+        public Person.Person OlderPerson { get; }
         public TimeSpan Difference { get; }
 
         #region IEquatable, Code generated via Resharper
@@ -25,10 +25,8 @@ namespace Algorithm
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return (
-                   Equals(YoungerPerson, other.YoungerPerson) &&
-                   Equals(OlderPerson, other.OlderPerson)
-                   );
+            return Equals(YoungerPerson, other.YoungerPerson) &&
+                   Equals(OlderPerson, other.OlderPerson) ;
 
         }
 

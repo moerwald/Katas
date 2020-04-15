@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Algorithm
+namespace Algorithm.Person
 {
     /// <summary>
     /// Immutable value type.

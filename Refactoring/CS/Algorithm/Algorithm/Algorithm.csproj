@@ -40,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BirthdayDifferenceRepository.cs" />
+    <Compile Include="BirthdayDifference\Repository\BirthdayDifferenceRepository.cs" />
     <Compile Include="FindAlgorithms\AlgorithmsFactory.cs" />
     <Compile Include="FindAlgorithms\BirthdayDiffMaxComparer.cs" />
     <Compile Include="FindAlgorithms\BirthdayDiffMinComparer.cs" />
     <Compile Include="FindAlgorithms\IBirthdayDiffComparer.cs" />
     <Compile Include="Finder.cs" />
-    <Compile Include="BirthdayDifference.cs" />
-    <Compile Include="IBirthdayDifferenceRepository.cs" />
-    <Compile Include="NullBirthdayDifference.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="BirthdayDifference\Model\BirthdayDifference.cs" />
+    <Compile Include="BirthdayDifference\Repository\IBirthdayDifferenceRepository.cs" />
+    <Compile Include="BirthdayDifference\Model\NullBirthdayDifference.cs" />
+    <Compile Include="Person\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace Algorithm
+﻿namespace Algorithm.BirthdayDifference.Model
 {
     public sealed class NullBirthdayDifference : BirthdayDifference
     {

@@ -2,6 +2,6 @@
 {
     public interface IBirthdayDiffComparer
     {
-        BirthdayDifference Compare(BirthdayDifference val1, BirthdayDifference val2);
+        BirthdayDifference.Model.BirthdayDifference Compare(BirthdayDifference.Model.BirthdayDifference val1, BirthdayDifference.Model.BirthdayDifference val2);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Algorithm.BirthdayDifference.Repository;
 using Algorithm.FindAlgorithms;
 
 namespace Algorithm
@@ -17,7 +18,7 @@ namespace Algorithm
             _comparer = comparer ?? throw new ArgumentNullException(nameof(comparer));
         }
 
-        public BirthdayDifference Find()
+        public BirthdayDifference.Model.BirthdayDifference Find()
             => _repository.GetAll()
                 .Aggregate((current, next) =>
                     _comparer.Compare(next, current));
