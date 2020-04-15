@@ -4,6 +4,6 @@ namespace Algorithm.BirthdayDifference.Repository
 {
     public interface IBirthdayDifferenceRepository
     {
-        IEnumerable<BirthdayDifference.Model.BirthdayDifference> GetAll();
+        IEnumerable<Model.BirthdayDifference> GetAll();
     }
 }
