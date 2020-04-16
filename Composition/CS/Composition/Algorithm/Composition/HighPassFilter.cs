@@ -9,8 +9,11 @@ namespace Algorithm.Composition
     /// You'll need to implement IMeasureFilter to do the job
     /// </summary>
     /// 
-    public class HighPassFilter 
+    public class HighPassFilter : IMeasurementFilter
     {
+        public IEnumerable<Measurement> Filter(IEnumerable<Measurement> measurements)
+            => measurements.Where(m => m.X > LowerBoundary && m.Y > LowerBoundary);
 
+        private const int LowerBoundary = 2;
     }
 }
